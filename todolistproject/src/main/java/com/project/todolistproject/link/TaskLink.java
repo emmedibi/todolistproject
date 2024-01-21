@@ -7,4 +7,5 @@ public class TaskLink {
 
     public static final String LIST_TASKS = "/getAllTasks";
     public static final String ADD_TASK = "/addTask";
+    public static final String TASKS = "/tasks";
 }
