@@ -16,36 +16,30 @@ import java.sql.Timestamp;
 public class Task {
 
     @Id
-    @Column
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column
     @NotNull()
     @NotEmpty(message = "Entity name must be provided.")
     private String title;
 
-    @Column
     @NotNull()
+    @NotEmpty(message = "Entity description must be provided.")
     private String description;
 
-    @Column
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     @NotNull
     private Timestamp start_date;
 
-    @Column
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Timestamp end_date;
 
-    @Column
     @NotNull()
     private Boolean is_repeated;
 
-    @Column
+    @Min(1)
     private Integer pace;
 
-    @Column
-    @NotNull()
     private String status;
 
     /**

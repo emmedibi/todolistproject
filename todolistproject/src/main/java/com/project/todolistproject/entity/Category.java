@@ -15,10 +15,9 @@ import java.util.List;
 public class Category {
 
     @Id
-    @Column
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column
     @NotNull()
     private String name;
 
@@ -28,4 +27,16 @@ public class Category {
     @OneToMany(mappedBy = "category", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonIgnore
     private List<Task> tasks;
+
+    public Category(Long id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
+    public Category() {
+    }
+
+    public Category(String name) {
+        this.name = name;
+    }
 }

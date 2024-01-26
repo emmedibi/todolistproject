@@ -12,20 +12,20 @@ import java.util.List;
 
 @Slf4j
 @RestController
-@RequestMapping("/category/")
+@CrossOrigin(origins = "http://localhost:4200")
 public class CategoryController {
 
     @Autowired
     CategoryService categoryService;
 
-    @GetMapping(path= CategoryLink.LIST_CATEGORIES)
+    @GetMapping("/categories")
     public ResponseEntity<?> getAllCategories() {
         log.info("CategoryController: get all categories");
         List<Category> listOfCategories = categoryService.getAllCategories();
         return ResponseEntity.ok(listOfCategories);
     }
 
-    @PostMapping(path= CategoryLink.ADD_CATEGORY)
+    @PostMapping("/categories")
     public ResponseEntity<?> saveCategory(@RequestBody Category category){
         log.info("CategoryController: save the new category");
         Category newCategory = categoryService.save(category);

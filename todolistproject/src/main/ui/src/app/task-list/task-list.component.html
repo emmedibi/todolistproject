@@ -1,5 +1,6 @@
 <div class="card my-5">
     <div class="card-body">
+      <app-filter-task></app-filter-task>
       <table class="table table-bordered table-striped">
         <thead class="thead-dark">
           <tr>
@@ -7,6 +8,7 @@
             <th scope="col">Title</th>
             <th scope="col">Description</th>
             <th scope="col">Start Date</th>
+            <th scope="col">Category</th>
         </tr>
         </thead>
         <tbody>
@@ -15,6 +17,7 @@
             <td>{{ task.title }}</td>
             <td>{{ task.description }}</td>
             <td>{{ task.start_date}}</td>
+            <td>{{ task.category.name}}</td>
           </tr>
         </tbody>
       </table>

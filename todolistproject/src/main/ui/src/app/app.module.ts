@@ -8,11 +8,16 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { BrowserModule } from "@angular/platform-browser";
 import { RouterLink, RouterOutlet } from "@angular/router";
 import { TaskService } from "./service/task.service";
+import { TaskFormComponent } from "./task-form/task-form.component";
+import { FilterTaskComponent } from "./filter-task/filter-task.component";
+import { CategoryService } from "./service/category.service";
 
 @NgModule({
     declarations: [
       AppComponent,
-      TaskListComponent
+      TaskListComponent,
+      TaskFormComponent,
+      FilterTaskComponent
     ],
     imports: [
       CommonModule,
@@ -24,7 +29,7 @@ import { TaskService } from "./service/task.service";
       RouterLink,
       ReactiveFormsModule
     ],
-    providers: [TaskService],
+    providers: [TaskService, CategoryService],
     bootstrap: [AppComponent]
   })
 

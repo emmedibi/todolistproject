@@ -8,15 +8,16 @@ import { Observable } from 'rxjs';
 })
 export class CategoryService {
 
-  private basUrl = "http://localhost:8080/category"
+  private basUrl = "http://localhost:8080/categories"
 
   constructor(private httpClient: HttpClient) { }
 
-  getCategoryList(): Observable<Category[]> {
-    return this.httpClient.get<Category[]>(`${this.basUrl}/getAllCategory`);
+  findAll(): Observable<Category[]> {
+    return this.httpClient.get<Category[]>(`${this.basUrl}`);
   }
 
-  createCategory(category: Category): Observable<Object> {
-    return this.httpClient.post(`${this.basUrl}/addCategory`, category);
+  save(category: Category): Observable<Object> {
+    return this.httpClient.post(`${this.basUrl}`, category);
   }
+
 }

@@ -26,8 +26,4 @@ CREATE TABLE task (
 
 );
 
-INSERT INTO task (ID, TITLE, DESCRIPTION, START_DATE, END_DATE, IS_REPEATED, PACE, STATUS, CATEGORY_ID) VALUES
-  (1, 'lunch', 'fish and chips', '2024-01-11', '2024-01-12 02:00:00', '1', '1', 'TO_DO', 2),
-  (2, 'coffee', 'buy coffee', '2024-01-11', NULL, '0', NULL, 'TO_DO', 2),
-  (3, 'dishwasher', 'start the dishwasher', '2024-01-11', NULL, '0', NULL, 'DONE', 3);
 

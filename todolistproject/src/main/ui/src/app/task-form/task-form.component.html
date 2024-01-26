@@ -1,0 +1,86 @@
+<div class="card my-5">
+    <div class="card-body">
+      <form (ngSubmit)="onSubmit()" #taskForm="ngForm">
+        <div class="form-group">
+          <label for="title">Title</label>
+          <input type="text" [(ngModel)]="task.title" 
+            class="form-control" 
+            id="title" 
+            name="title" 
+            placeholder="Enter task's title"
+            required #title="ngModel">
+        </div>
+        <div [hidden]="!title.pristine" class="alert alert-danger">Title is required</div>
+        <div class="form-group">
+          <label for="description">Description</label>
+          <input type="text" [(ngModel)]="task.description" 
+            class="form-control" 
+            id="description" 
+            name="description" 
+            placeholder="Enter task's description"
+            required #description="ngModel">
+          <div [hidden]="!description.pristine" class="alert alert-danger">Description is required</div>
+        </div>
+        <div class="form-group">
+            <label for="start_date">Start Date</label>
+            <input type="date" [(ngModel)]="task.start_date" 
+              class="form-control" 
+              id="start_date" 
+              name="start_date" 
+              placeholder="Enter start date of the task"
+              required #start_date="ngModel">
+            <div [hidden]="!start_date.pristine" class="alert alert-danger">Start date is required</div>
+          </div>
+          <div class="form-group">
+            <label for="end_date">End Date</label>
+            <input type="date" [(ngModel)]="task.end_date" 
+              class="form-control" 
+              id="end_date" 
+              name="end_date" 
+              placeholder="Enter end date of the task"
+              required #end_date="ngModel">
+          </div>
+          <div class="form-group">
+            <label for="is_repeated">Is repeated?</label>
+            <br>
+            <input type="radio" id ="yesChoice" [(ngModel)] ="task.is_repeated" [value]=true name="is_repeated"  >
+            <label for="is_repeated">Yes</label>
+            <br>
+            <input type="radio" id ="noChoice"  [(ngModel)] ="task.is_repeated" [value]=false name="is_repeated">
+            <label for="is_repeated">No</label>
+          </div>
+          <div class="form-group">
+            <label for="pace">Pace</label>
+            <input type="number" [(ngModel)]="task.pace" 
+              class="form-control" 
+              id="pace" 
+              name="pace" 
+              placeholder="Enter task's pace"
+              required #pace="ngModel">
+          </div>
+          <div class="form-group">
+            <label for="status">Status</label>
+            <input type="text" [(ngModel)]="task.status" 
+              class="form-control" 
+              id="status" 
+              name="status" 
+              placeholder="Enter task's status"
+              required #status="ngModel">
+          </div>
+          <div class="form-group">
+            <label for="category">Categories</label>
+            <br>
+            <ng-container *ngFor= "let category of categories; let i = index">              
+            <input type="radio"  [(ngModel)] ="task.category" [value]=category name="category">
+            <label for="category">{{category.name}}</label>
+            <br>
+            </ng-container>
+          </div>
+          <br>
+        <button type="submit" 
+          class="btn btn-info">Submit</button>
+      </form>
+    </div>
+  </div>
+  
+
